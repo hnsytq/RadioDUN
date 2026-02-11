@@ -9,11 +9,11 @@ bash train.sh
 ```
 Executing the following Python script for testing RadioDUN under the **transmitter-known** conditions:
 ```
-python main.py --model_phase test --model_path ./checkpoints/carsDPM_transmitter-known.pt
+python main.py --model_phase test --model_path ./checkpoints/carsDPM_transmitter-known.pt --batch_size 128
 ```
 Similarly, executing the following Python script for testing RadioDUN under the **transmitter-unknown** conditions:
 ```
-python main.py --model_phase test --model_path ./checkpoints/carsDPM_transmitters-unknown.pt
+python main.py --model_phase test --model_path ./checkpoints/carsDPM_transmitters-unknown.pt --batch_size 128
 ```
 
 ## Checkpoint Download
