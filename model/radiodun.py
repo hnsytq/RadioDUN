@@ -51,24 +51,7 @@ class RadioDUN(nn.Module):
         self.conv_pre = nn.Conv2d(self.para_num, 1, kernel_size=1, bias=False)
         self.shadow_conv = nn.Conv2d(self.para_num-1, 1, kernel_size=1, bias=False)
 
-    def _sample_img(self, img, sample_positions):
-        """
-        Sample given image at specified positions
-        Args:
-            img: B x nC x H x W
-            sample_positions: B x S x 2 (y, x) samples
-        Returns:
-            values: B x S x nC
-        """
-        B, nC, H, W = img.shape
-        positions = sample_positions.view(B, 1, -1, 2)
-        values = torch.nn.functional.grid_sample(img, positions, align_corners=False)
-        values = values.permute(0, 2, 1, 3).contiguous().view(B, -1, nC)
-        return values
-
     def save_model(self, name, out_dir='/content'):
-        # First time model is saved (as indicated by not having a pre-existing model directory),
-        # create model folder and save model config.
 
         # Save state dict
         save_model_path = os.path.join(out_dir, f'checkpoints')

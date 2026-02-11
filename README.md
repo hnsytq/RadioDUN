@@ -1,3 +1,21 @@
-# Official implementation of "RadioDUN: A Physics-Inspired Deep Unfolding Network for Radio Map Estimation"
+# Official Implement of "RadioDUN: A Physics-Inspired Deep Unfolding Network for Radio Map Estimation".
 
-The core implementation of RadioDUN has been made available in `radiodun.py`, and the complete codebase will be organized and released as soon as possible.
+## Experiment Execution
+
+Simply execute the following shell script for training RadioDUN under carsDPM:
+
+```
+bash train.sh
+```
+Simple execute the following Python script for testing RadioDUN under the **transmitter-known** conditions:
+```
+python main.py --model_phase test --model_path ./checkpoints/carsDPM_transmitter-known.pt
+```
+Similarly, executing the following Python script for testing RadioDUN under the **transmitter-unknown** conditions:
+```
+python main.py --model_phase test --model_path ./checkpoints/carsDPM_transmitters-unknown.pt
+```
+
+## Checkpoint Download
+
+The pretrained checkpoints can be found at https://pan.baidu.com/s/1OEaMQz1pJ16W7UsG72dHlA. The extract code is b6fn.
